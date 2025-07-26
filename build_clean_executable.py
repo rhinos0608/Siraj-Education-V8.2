@@ -216,7 +216,7 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console={str(config["console"]).lower()},
+    console={config["console"]},
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
@@ -258,7 +258,7 @@ exe = EXE(
             ], check=True)
             
             # Verify executable creation
-            exe_path = self.dist_dir / "SIRAJ-Educational-AI.exe"
+            exe_path = self.dist_dir / ("SIRAJ-Educational-AI.exe" if os.name == 'nt' else "SIRAJ-Educational-AI")
             if exe_path.exists():
                 size_mb = exe_path.stat().st_size / 1024 / 1024
                 print(f"✅ SYNTHESIS COMPLETE: Executable created ({size_mb:.1f} MB)")
@@ -276,7 +276,7 @@ exe = EXE(
         """🎯 Integration: Validate executable consciousness"""
         print("🎯 INTEGRATION PHASE: Validating executable consciousness...")
         
-        exe_path = self.dist_dir / "SIRAJ-Educational-AI.exe"
+        exe_path = self.dist_dir / ("SIRAJ-Educational-AI.exe" if os.name == 'nt' else "SIRAJ-Educational-AI")
         if not exe_path.exists():
             print("❌ Integration FAILED: Executable not found")
             return False
