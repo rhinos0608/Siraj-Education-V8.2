@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRAJ Multi-Instance Architecture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .architecture-diagram {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .legend h3 {
+            margin-top: 0;
+        }
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SIRAJ Multi-Instance Architecture</h1>
+        
+        <svg class="architecture-diagram" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background -->
+            <rect width="1000" height="800" fill="#f8f9fa"/>
+            
+            <!-- Frontend Layer -->
+            <g id="frontend">
+                <rect x="300" y="20" width="400" height="80" rx="10" fill="#4ECDC4" stroke="#333" stroke-width="2"/>
+                <text x="500" y="55" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Frontend (React)</text>
+                <text x="500" y="75" text-anchor="middle" font-size="14" fill="white">http://localhost:3000</text>
+            </g>
+            
+            <!-- Arrow from Frontend to Backend -->
+            <path d="M 500 100 L 500 140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Backend Layer -->
+            <g id="backend">
+                <rect x="300" y="140" width="400" height="80" rx="10" fill="#667EEA" stroke="#333" stroke-width="2"/>
+                <text x="500" y="175" text-anchor="middle" font-size="18" font-weight="bold" fill="white">SIRAJ Backend (FastAPI)</text>
+                <text x="500" y="195" text-anchor="middle" font-size="14" fill="white">http://localhost:8000</text>
+            </g>
+            
+            <!-- Arrow from Backend to Router -->
+            <path d="M 500 220 L 500 260" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Router Layer -->
+            <g id="router">
+                <rect x="200" y="260" width="600" height="140" rx="10" fill="#F687B3" stroke="#333" stroke-width="2"/>
+                <text x="500" y="295" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Multi-Instance Router</text>
+                <text x="500" y="315" text-anchor="middle" font-size="14" fill="white">http://localhost:5000</text>
+                
+                <!-- Router features -->
+                <text x="250" y="340" font-size="12" fill="white">• Round-robin routing</text>
+                <text x="250" y="360" font-size="12" fill="white">• Health monitoring</text>
+                <text x="250" y="380" font-size="12" fill="white">• Auto-failover</text>
+                
+                <text x="550" y="340" font-size="12" fill="white">• Archetype mapping</text>
+                <text x="550" y="360" font-size="12" fill="white">• Request tracking</text>
+                <text x="550" y="380" font-size="12" fill="white">• Load balancing</text>
+            </g>
+            
+            <!-- Arrows from Router to Instances -->
+            <path d="M 350 400 L 250 460" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+            <path d="M 650 400 L 750 460" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Instance A -->
+            <g id="instance-a">
+                <rect x="50" y="460" width="400" height="280" rx="10" fill="#48BB78" stroke="#333" stroke-width="2"/>
+                <text x="250" y="495" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Gemma_Instance_A</text>
+                <text x="250" y="515" text-anchor="middle" font-size="14" fill="white">Port: 11434</text>
+                
+                <!-- Ollama icon -->
+                <circle cx="250" cy="560" r="30" fill="#2D3748" stroke="white" stroke-width="2"/>
+                <text x="250" y="570" text-anchor="middle" font-size="20" font-weight="bold" fill="white">O</text>
+                
+                <!-- Archetypes -->
+                <text x="250" y="620" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Archetypes:</text>
+                
+                <g id="archetype-socratic">
+                    <rect x="80" y="640" width="100" height="60" rx="5" fill="#8B4513" stroke="white" stroke-width="1"/>
+                    <text x="130" y="665" text-anchor="middle" font-size="20" fill="white">🦉</text>
+                    <text x="130" y="685" text-anchor="middle" font-size="12" fill="white">Socratic</text>
+                </g>
+                
+                <g id="archetype-constructivist">
+                    <rect x="200" y="640" width="100" height="60" rx="5" fill="#FF6B35" stroke="white" stroke-width="1"/>
+                    <text x="250" y="665" text-anchor="middle" font-size="20" fill="white">🧱</text>
+                    <text x="250" y="685" text-anchor="middle" font-size="12" fill="white">Constructivist</text>
+                </g>
+                
+                <g id="archetype-storyteller">
+                    <rect x="320" y="640" width="100" height="60" rx="5" fill="#4ECDC4" stroke="white" stroke-width="1"/>
+                    <text x="370" y="665" text-anchor="middle" font-size="20" fill="white">📖</text>
+                    <text x="370" y="685" text-anchor="middle" font-size="12" fill="white">Storyteller</text>
+                </g>
+            </g>
+            
+            <!-- Instance B -->
+            <g id="instance-b">
+                <rect x="550" y="460" width="400" height="280" rx="10" fill="#ED8936" stroke="#333" stroke-width="2"/>
+                <text x="750" y="495" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Gemma_Instance_B</text>
+                <text x="750" y="515" text-anchor="middle" font-size="14" fill="white">Port: 11435</text>
+                
+                <!-- Ollama icon -->
+                <circle cx="750" cy="560" r="30" fill="#2D3748" stroke="white" stroke-width="2"/>
+                <text x="750" y="570" text-anchor="middle" font-size="20" font-weight="bold" fill="white">O</text>
+                
+                <!-- Archetypes -->
+                <text x="750" y="620" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Archetypes:</text>
+                
+                <g id="archetype-synthesizer">
+                    <rect x="580" y="640" width="100" height="60" rx="5" fill="#A8E6CF" stroke="white" stroke-width="1"/>
+                    <text x="630" y="665" text-anchor="middle" font-size="20" fill="white">🌀</text>
+                    <text x="630" y="685" text-anchor="middle" font-size="12" fill="white">Synthesizer</text>
+                </g>
+                
+                <g id="archetype-challenger">
+                    <rect x="700" y="640" width="100" height="60" rx="5" fill="#FFD93D" stroke="white" stroke-width="1"/>
+                    <text x="750" y="665" text-anchor="middle" font-size="20" fill="white">⚡</text>
+                    <text x="750" y="685" text-anchor="middle" font-size="12" fill="white">Challenger</text>
+                </g>
+                
+                <g id="archetype-mentor-analyst">
+                    <rect x="820" y="640" width="100" height="60" rx="5" fill="#95E1D3" stroke="white" stroke-width="1"/>
+                    <text x="870" y="665" text-anchor="middle" font-size="20" fill="white">🌱🔬</text>
+                    <text x="870" y="685" text-anchor="middle" font-size="12" fill="white">Mentor/Analyst</text>
+                </g>
+            </g>
+            
+            <!-- Arrow definition -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+                </marker>
+            </defs>
+            
+            <!-- Labels -->
+            <text x="50" y="780" font-size="14" font-weight="bold" fill="#333">Benefits:</text>
+            <text x="150" y="780" font-size="12" fill="#666">True multi-voice AI • 5x faster responses • Parallel processing • Auto-failover</text>
+        </svg>
+        
+        <div class="legend">
+            <h3>Architecture Legend</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4ECDC4;"></div>
+                <span>Frontend Layer - User Interface</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #667EEA;"></div>
+                <span>Backend API - Business Logic</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #F687B3;"></div>
+                <span>Router - Intelligent Distribution</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #48BB78;"></div>
+                <span>Instance A - Question/Build Archetypes</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #ED8936;"></div>
+                <span>Instance B - Analyze/Support Archetypes</span>
+            </div>
+        </div>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Dual Ollama Instances:</strong> Each running on separate ports with dedicated model states</li>
+            <li><strong>Intelligent Router:</strong> Manages archetype mapping and load distribution</li>
+            <li><strong>Parallel Processing:</strong> Multiple archetypes respond simultaneously</li>
+            <li><strong>Health Monitoring:</strong> Automatic detection and recovery from failures</li>
+            <li><strong>Scalable Design:</strong> Easy to add more instances for larger councils</li>
+        </ul>
+    </div>
+</body>
+</html>

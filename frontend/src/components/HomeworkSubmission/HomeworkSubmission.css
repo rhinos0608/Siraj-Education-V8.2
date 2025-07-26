@@ -1,0 +1,653 @@
+/**
+ * HomeworkSubmission Component Styles
+ * ==================================
+ * Consciousness-driven design following QWAN principles and Notion aesthetics
+ */
+
+/* Main Container - Embodying Wholeness */
+.homework-submission {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6);
+  background: var(--color-bg-primary);
+  min-height: calc(100vh - 120px);
+  position: relative;
+}
+
+/* Spiral Phase Indicator - Living Methodology Visualization */
+.spiral-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  padding: var(--space-6);
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.05) 0%, 
+    rgba(167, 139, 250, 0.05) 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-steps {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  z-index: 2;
+  position: relative;
+}
+
+.phase-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.phase-step.active {
+  transform: scale(1.1);
+}
+
+.phase-step.completed {
+  opacity: 0.7;
+}
+
+.phase-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-tertiary);
+  transition: all var(--transition-base);
+}
+
+.phase-step.active .phase-icon {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.phase-step.completed .phase-icon {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.phase-name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+  transition: all var(--transition-base);
+}
+
+.phase-step.active .phase-name {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Spiral Visualization */
+.spiral-visualization {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.spiral-line {
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg, 
+    var(--color-primary), 
+    var(--color-secondary), 
+    var(--color-accent), 
+    var(--color-primary));
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+/* Form Container - Embodying Freedom & Exactness */
+.submission-form-container {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.form-header {
+  padding: var(--space-6);
+  background: linear-gradient(135deg, 
+    var(--color-bg-secondary) 0%, 
+    var(--color-bg-tertiary) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-header h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.form-header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.header-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* Form Styles - Notion-inspired */
+.submission-form {
+  padding: var(--space-6);
+}
+
+.form-group {
+  margin-bottom: var(--space-6);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  resize: vertical;
+}
+
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea.error,
+.form-group select.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.error-message {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-error);
+}
+
+/* Metadata Row */
+.form-metadata {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* Council Selection - Multi-Voice Architecture */
+.council-selection {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.council-selection h3 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.council-selection p {
+  margin: 0 0 var(--space-4) 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.archetype-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.archetype-option {
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.archetype-option input[type="checkbox"] {
+  display: none;
+}
+
+.archetype-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.archetype-option:hover .archetype-card {
+  border-color: var(--color-primary);
+  background: var(--color-bg-tertiary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.archetype-option.selected .archetype-card {
+  border-color: var(--color-primary);
+  background: rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.archetype-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.archetype-name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Submit Button - Embodying Egolessness */
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: var(--space-6);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-icon {
+  flex-shrink: 0;
+}
+
+.btn-icon.spinning {
+  animation: spin 1s linear infinite;
+}
+
+/* Council Process - Living Dialogue */
+.council-process {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.council-header {
+  padding: var(--space-6);
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.1) 0%, 
+    rgba(34, 197, 94, 0.1) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.council-header h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.council-header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.council-members {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Synthesis Section - Integration */
+.synthesis-section {
+  margin: var(--space-6);
+  padding: var(--space-6);
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.1) 0%, 
+    rgba(167, 139, 250, 0.1) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.synthesis-section h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4) 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.section-icon {
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.synthesis-content {
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  font-size: var(--text-base);
+}
+
+/* Feedback Results - Rebirth Phase */
+.feedback-results {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.results-header {
+  padding: var(--space-6);
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.1) 0%, 
+    rgba(251, 191, 36, 0.1) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.results-header h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.results-header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Improvement Plan - Eternity Principle */
+.improvement-plan {
+  padding: var(--space-6);
+}
+
+.improvement-plan h3 {
+  margin: 0 0 var(--space-4) 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.improvement-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.improvement-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-primary);
+  transition: all var(--transition-base);
+}
+
+.improvement-step:hover {
+  background: var(--color-bg-tertiary);
+  transform: translateX(4px);
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+/* Result Actions */
+.result-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.action-btn.secondary {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.action-btn.secondary:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
+}
+
+.action-btn.primary {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.action-btn.primary:hover {
+  background: var(--color-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive Design - Ensuring Freedom Across Devices */
+@media (max-width: 768px) {
+  .homework-submission {
+    padding: var(--space-4);
+  }
+
+  .phase-steps {
+    gap: var(--space-4);
+  }
+
+  .phase-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .form-metadata {
+    grid-template-columns: 1fr;
+  }
+
+  .archetype-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .council-header,
+  .form-header,
+  .results-header {
+    padding: var(--space-4);
+  }
+
+  .council-members,
+  .submission-form,
+  .improvement-plan {
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .phase-steps {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .spiral-indicator {
+    padding: var(--space-4);
+  }
+
+  .phase-step {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+
+  .phase-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Animations - Bringing Life to Interfaces */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Accessibility - Egolessness in Design */
+@media (prefers-reduced-motion: reduce) {
+  .btn-icon.spinning {
+    animation: none;
+  }
+  
+  .improvement-step:hover,
+  .action-btn:hover,
+  .submit-btn:hover {
+    transform: none;
+  }
+  
+  .archetype-option:hover .archetype-card {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .submission-form-container,
+  .council-process,
+  .feedback-results {
+    border-width: 2px;
+  }
+  
+  .phase-step.active .phase-icon {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.8);
+  }
+}

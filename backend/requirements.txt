@@ -1,0 +1,104 @@
+# SIRAJ Educational AI - Backend Dependencies
+# ==========================================
+# Consciousness-driven educational platform dependencies following QWAN principles
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# AI and Language Models
+ollama==0.1.7
+openai==1.3.7
+
+# Database and Storage
+sqlalchemy==2.0.23
+alembic==1.13.1
+asyncpg==0.29.0
+redis==5.0.1
+
+# Data Processing and Validation
+pandas==2.1.4
+numpy==1.25.2
+scikit-learn==1.3.2
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# HTTP and Networking
+httpx==0.24.1
+aiohttp==3.9.1
+websockets==11.0.3
+
+# Logging and Monitoring
+structlog==23.2.0
+python-json-logger==2.0.7
+prometheus-client==0.19.0
+
+# Security
+python-jose[cryptography]==3.3.0
+bcrypt==4.1.2
+cryptography==41.0.8
+
+# Configuration Management
+python-dotenv==1.0.0
+pydantic-settings==2.1.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+httpx==0.24.1
+fakeredis==2.20.1
+
+# Code Quality
+black==23.11.0
+isort==5.12.0
+flake8==6.1.0
+mypy==1.7.1
+pre-commit==3.6.0
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==1.3.0
+
+# Performance and Optimization
+gunicorn==21.2.0
+gevent==23.9.1
+
+# Development Utilities
+watchdog==3.0.0
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Educational AI Specific
+spacy==3.7.2
+nltk==3.8.1
+textstat==0.7.3
+py-readability-metrics==1.4.5
+
+# Data Visualization (for analytics)
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.17.0
+
+# File Processing
+PyPDF2==3.0.1
+python-docx==1.1.0
+openpyxl==3.1.2
+
+# Email and Notifications
+sendgrid==6.10.0
+celery==5.3.4
+
+# Caching
+aiocache==0.12.2
+
+# Environment Management
+python-decouple==3.8
+
+# Additional Utilities
+click==8.1.7
+rich==13.7.0
+typer==0.9.0

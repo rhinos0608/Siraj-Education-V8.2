@@ -1,0 +1,146 @@
+/**
+ * App Component Specific Styles
+ * ============================
+ * 
+ * Styles specific to the main App component and its layout structure.
+ */
+
+.app {
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+/* App Theme Transitions */
+.app.light-theme {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.app.dark-theme {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+}
+
+/* Layout Grid System */
+.app-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: calc(100vh - 64px); /* Account for header */
+}
+
+.app-layout.has-sidebar {
+  grid-template-columns: 280px minmax(0, 1fr);
+}
+
+/* Content Area Styling */
+.main-content {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: var(--shadow-lg);
+  margin: var(--space-4);
+  margin-top: 0;
+  transition: all var(--transition-base);
+}
+
+.main-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-primary) 20%,
+    var(--color-secondary) 80%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 1024px) {
+  .app-layout.has-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  
+  .main-content {
+    margin: var(--space-2);
+    margin-top: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+/* Page Transition Animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+/* Focus Management */
+.app:focus-within {
+  outline: none;
+}
+
+.app .skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  border-radius: var(--radius-base);
+  text-decoration: none;
+  z-index: var(--z-tooltip);
+  transition: top var(--transition-fast);
+}
+
+.app .skip-link:focus {
+  top: 6px;
+}
+
+/* Performance Optimizations */
+.app * {
+  will-change: auto;
+}
+
+.app .animated-element {
+  will-change: transform, opacity;
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .main-content {
+    box-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.02),
+      0 8px 16px rgba(0, 0, 0, 0.04),
+      0 16px 32px rgba(0, 0, 0, 0.06);
+  }
+}

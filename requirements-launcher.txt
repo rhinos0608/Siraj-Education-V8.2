@@ -1,0 +1,15 @@
+# SIRAJ Educational AI - Core Requirements
+# ========================================
+# Following Living Spiral methodology
+# Python 3.12.3 compatible
+
+# Core dependencies only
+httpx>=0.24.0       # HTTP client for Ollama
+psutil>=5.9.0       # System resource monitoring  
+fastapi>=0.104.0    # Web framework
+uvicorn>=0.23.0     # ASGI server
+aiofiles>=23.0.0    # Async file operations
+colorama>=0.4.6     # Cross-platform colors
+
+# For building executable
+pyinstaller>=6.0.0  # Create standalone .exe

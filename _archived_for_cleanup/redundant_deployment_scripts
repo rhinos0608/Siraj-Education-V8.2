@@ -1,0 +1,161 @@
+@echo off
+REM SIRAJ Educational AI - One-Click Deployment v8.2
+REM ================================================
+REM Complete educational council with Gemma 3n integration
+
+cd /d "%~dp0"
+
+echo.
+echo   _____ _____ _____            _    
+echo  / ____^|_   _^|  __ \     /\   ^| ^|   
+echo ^| (___   ^| ^| ^| ^|__) ^|   /  \  ^| ^|   
+echo  \___ \  ^| ^| ^|  _  /   / /\ \ ^| ^|   
+echo  ____) ^|_^| ^|_^| ^| \ \  / ____ \^| ^|   
+echo ^|_____/^|_____^|_^|  \_\/_/    \_\_^|   
+echo.
+echo  Educational AI Council v8.2
+echo  Complete One-Click Deployment
+echo.
+
+REM Verify we're in the right directory
+if not exist "launcher.py" (
+    echo ERROR: launcher.py not found!
+    echo Please ensure you're running this from the SIRAJ project directory.
+    echo Current directory: %CD%
+    echo.
+    pause
+    exit /b 1
+)
+
+REM Check Python
+python --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ERROR: Python is not installed!
+    echo Please install Python 3.11+ from https://python.org
+    pause
+    exit /b 1
+)
+
+echo ========================================
+echo SIRAJ EDUCATIONAL AI DEPLOYMENT
+echo ========================================
+echo.
+echo This will automatically:
+echo [1] Apply model consistency fixes
+echo [2] Install/check Ollama and Gemma 3n
+echo [3] Start dual educational instances  
+echo [4] Launch full council interface
+echo [5] Open browser to educational dashboard
+echo.
+echo Features included:
+echo - 7 Educational AI Archetypes (Council Assembly)
+echo - Multi-instance parallel processing (Spiral Protocol)
+echo - Real-time council synthesis (Living Integration)
+echo - Grade-level adaptive responses (Consciousness-Driven)
+echo - Zero-configuration deployment (One-Click Promise)
+echo - API Endpoint Synchronization (Fixed Integration)
+echo - Frontend Build Automation (Emergency Protocols)
+echo.
+
+REM Apply fixes first
+echo Step 1: Applying model consistency fixes...
+if exist "fix_model_consistency_correct.py" (
+    python fix_model_consistency_correct.py
+) else (
+    echo Model consistency fix not found, continuing...
+)
+echo.
+
+REM Install dependencies  
+echo Step 2: Installing Python dependencies...
+pip install httpx psutil fastapi uvicorn pydantic >nul 2>&1
+echo.
+
+REM SPIRAL COUNCIL ASSEMBLY - Frontend Build Protocol
+echo Step 3: Council Assembly - Frontend Build Status Verification...
+echo.
+echo 🌀 Explorer Voice: Seeking innovative build pathways...
+echo 🛡️ Maintainer Voice: Ensuring stable build foundation...
+echo 🔬 Analyzer Voice: Verifying static asset patterns...
+echo.
+if not exist "frontend\build\static\js" (
+    echo 🚨 CRITICAL: Frontend build missing!
+    echo 🏛️ Council Decision: Execute emergency build protocol
+    echo.
+    
+    REM Try Spiral Protocol build script first
+    if exist "frontend\build_frontend.py" (
+        echo 🌀 Executing Spiral Protocol build script...
+        cd frontend
+        python build_frontend.py
+        cd ..
+        
+        if exist "frontend\build\static\js" (
+            echo ✅ Spiral Protocol build SUCCESS!
+            goto spiral_build_complete
+        ) else (
+            echo ⚠️ Spiral Protocol incomplete, invoking emergency method...
+        )
+    )
+    
+    REM Emergency Council Decision - Direct Build
+    echo 🚨 EMERGENCY: Invoking direct build protocol...
+    if exist "EMERGENCY-BUILD-FRONTEND.bat" (
+        echo 🏛️ Council executing emergency build...
+        call "EMERGENCY-BUILD-FRONTEND.bat"
+        if %errorlevel% neq 0 (
+            echo.
+            echo ❌ SPIRAL COLLAPSE: All build methods failed!
+            echo 🛡️ Maintainer Voice: Cannot proceed without frontend assets
+            echo 🎨 Developer Voice: User experience will be broken
+            echo 🦉 Explorer Voice: Manual intervention required
+            echo.
+            echo Suggested manual fix:
+            echo   cd frontend
+            echo   npm install
+            echo   npm run build
+            echo.
+            pause
+            exit /b 1
+        )
+    ) else (
+        echo ❌ Emergency build script missing!
+        echo 🏛️ Council recommends manual build: cd frontend && npm run build
+        pause
+        exit /b 1
+    )
+    
+    :spiral_build_complete
+    echo ✅ Frontend build consciousness restored!
+echo.
+) else (
+    echo ✅ Frontend build assets found (Council approved)
+    echo 🔬 Analyzer Voice: Static asset pattern verified
+)
+echo.
+echo 🌀 Council Assembly complete - Build pathway established
+echo 🎯 Integration ready: Frontend → Launcher → Browser
+echo.
+
+REM Launch integrated system
+echo Step 4: Launching SIRAJ Educational AI Council with integrated frontend...
+echo.
+python launcher.py
+
+if %errorlevel% neq 0 (
+    echo.
+    echo ============================================
+    echo DEPLOYMENT FAILED - Troubleshooting Guide
+    echo ============================================
+    echo.
+    echo Common solutions:
+    echo 1. Run as Administrator (for Ollama installation)
+    echo 2. Check internet connection (for model downloads)
+    echo 3. Ensure ports 5000, 8000, 3000 are available
+    echo 4. Verify 8GB+ RAM available for models
+    echo.
+    echo For detailed logs, check the output above.
+    echo.
+)
+
+pause

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="SIRAJ Educational AI - Multi-perspective AI tutoring system powered by Gemma 3n" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Educational AI metadata -->
+    <meta name="application-name" content="SIRAJ Educational AI" />
+    <meta name="author" content="SIRAJ Educational AI Team" />
+    <meta name="keywords" content="AI, education, tutoring, learning, multi-perspective, Gemma, Ollama" />
+    
+    <!-- OpenGraph meta tags -->
+    <meta property="og:title" content="SIRAJ Educational AI" />
+    <meta property="og:description" content="Revolutionary multi-perspective AI tutoring system that provides seven different teaching approaches for every educational topic." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%PUBLIC_URL%/siraj-preview.png" />
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SIRAJ Educational AI" />
+    <meta name="twitter:description" content="Seven AI teachers, one powerful learning experience." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/siraj-preview.png" />
+    
+    <title>SIRAJ Educational AI - Multi-Perspective Learning</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Critical CSS for immediate loading */
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        color: white;
+      }
+      
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; color: white;">
+        <h1>SIRAJ Educational AI</h1>
+        <p>You need to enable JavaScript to run this app.</p>
+        <p>SIRAJ requires JavaScript for the interactive AI council experience.</p>
+      </div>
+    </noscript>
+    
+    <div id="root">
+      <!-- Loading state while React loads -->
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <h2>Loading SIRAJ Educational AI...</h2>
+        <p>Initializing your AI teaching council...</p>
+      </div>
+    </div>
+    
+    <!-- Educational AI app will replace the loading content -->
+  </body>
+</html>

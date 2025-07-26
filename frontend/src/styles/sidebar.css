@@ -1,0 +1,627 @@
+/* SIRAJ Educational AI - Enhanced Sidebar Styles
+   =====================================================
+   
+   Notion x World Anvil Sidebar Design:
+   - Clean Notion-inspired layout and typography
+   - Rich World Anvil-inspired information density
+   - Consciousness-driven visual hierarchy
+   - QWAN principle embodiment in design
+*/
+
+/* =============================================================================
+   SIDEBAR LAYOUT & STRUCTURE
+   ============================================================================= */
+
+.siraj-sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  border-right: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: var(--z-fixed);
+  transition: all var(--transition-base);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.siraj-sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-fixed) - 1);
+  opacity: 0;
+  animation: fadeIn var(--transition-fast) ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* =============================================================================
+   SIDEBAR HEADER - Logo & Status
+   ============================================================================= */
+
+.sidebar-header {
+  padding: var(--space-6) var(--space-5);
+  border-bottom: 1px solid var(--color-border-light);
+  background: linear-gradient(135deg, var(--color-bg-primary), var(--color-bg-tertiary));
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(4px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.logo-text {
+  flex: 1;
+}
+
+.logo-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: 0.5px;
+}
+
+.logo-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: var(--space-1);
+}
+
+/* System Status */
+.system-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.disconnected .status-dot {
+  background-color: var(--color-error);
+}
+
+.status-text {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.phase-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+.phase-label {
+  color: var(--color-text-tertiary);
+}
+
+.phase-value {
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-base);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+}
+
+.phase-value.collapse { border-left-color: #ef4444; }
+.phase-value.council { border-left-color: #f59e0b; }
+.phase-value.synthesis { border-left-color: #06b6d4; }
+.phase-value.rebirth { border-left-color: #10b981; }
+
+/* =============================================================================
+   NAVIGATION SECTION
+   ============================================================================= */
+
+.sidebar-nav {
+  flex: 1;
+  padding: var(--space-4) 0;
+}
+
+.nav-section {
+  margin-bottom: var(--space-6);
+}
+
+.nav-section-header {
+  padding: 0 var(--space-5) var(--space-3);
+}
+
+.nav-section-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-left-color: var(--color-border-medium);
+}
+
+.nav-link.active {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.nav-icon {
+  font-size: var(--font-size-lg);
+  width: 24px;
+  text-align: center;
+}
+
+.nav-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-name {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+}
+
+.nav-description {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  line-height: var(--line-height-tight);
+  margin-top: var(--space-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-phase-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.phase-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.phase-dot.collapse { background-color: #ef4444; }
+.phase-dot.council { background-color: #f59e0b; }
+.phase-dot.synthesis { background-color: #06b6d4; }
+.phase-dot.rebirth { background-color: #10b981; }
+
+/* =============================================================================
+   SIDEBAR SECTIONS - Expandable Information Panels
+   ============================================================================= */
+
+.sidebar-section {
+  margin: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.section-toggle {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background-color: var(--color-bg-secondary);
+}
+
+.section-toggle:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.section-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.section-title-static {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.section-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.effectiveness-badge {
+  font-size: var(--font-size-xs);
+  background-color: var(--color-success);
+  color: white;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.toggle-icon {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  transition: transform var(--transition-fast);
+}
+
+.toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* =============================================================================
+   ARCHETYPE GRID - Council Member Display
+   ============================================================================= */
+
+.archetype-grid {
+  padding: var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  overflow: hidden;
+}
+
+.archetype-mini-card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.archetype-mini-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--archetype-color);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.archetype-mini-card:hover {
+  border-color: var(--archetype-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.archetype-mini-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.archetype-emoji {
+  font-size: var(--font-size-lg);
+}
+
+.archetype-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.archetype-name {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.archetype-effectiveness {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.archetype-progress {
+  height: 4px;
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.archetype-progress .progress-fill {
+  height: 100%;
+  background-color: var(--archetype-color);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+/* =============================================================================
+   QWAN METRICS - Quality Visualization
+   ============================================================================= */
+
+.qwan-metrics {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.qwan-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-name {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-transform: capitalize;
+}
+
+.metric-value {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+.metric-bar {
+  height: 4px;
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+/* =============================================================================
+   LIVING SPIRAL VISUALIZATION
+   ============================================================================= */
+
+.spiral-section {
+  margin-top: auto;
+}
+
+.spiral-visualization {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.spiral-phase-mini {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-base);
+  transition: all var(--transition-fast);
+  opacity: 0.6;
+}
+
+.spiral-phase-mini.active {
+  background-color: var(--color-bg-tertiary);
+  opacity: 1;
+  border-left: 3px solid var(--color-primary);
+}
+
+.spiral-phase-mini .phase-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-text-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.spiral-phase-mini.active .phase-dot {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+.phase-name {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+  font-weight: var(--font-weight-medium);
+}
+
+.spiral-phase-mini.active .phase-name {
+  color: var(--color-text-primary);
+}
+
+/* =============================================================================
+   SIDEBAR FOOTER
+   ============================================================================= */
+
+.sidebar-footer {
+  padding: var(--space-5);
+  border-top: 1px solid var(--color-border-light);
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-tertiary));
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.consciousness-quote {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  font-style: italic;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-2);
+}
+
+.version-info {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 768px) {
+  .siraj-sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+  
+  .siraj-sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .archetype-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-header {
+    padding: var(--space-4);
+  }
+  
+  .nav-link {
+    padding: var(--space-2) var(--space-4);
+  }
+  
+  .sidebar-section {
+    margin: var(--space-3) var(--space-4);
+  }
+}
+
+/* =============================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================================================= */
+
+.nav-link:focus-visible,
+.section-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archetype-mini-card,
+  .nav-link,
+  .section-toggle,
+  .spiral-phase-mini {
+    transition: none;
+  }
+  
+  .logo-icon::after {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-link {
+    border-left-width: 4px;
+  }
+  
+  .archetype-mini-card::before {
+    height: 4px;
+  }
+  
+  .status-dot {
+    border: 2px solid var(--color-text-primary);
+  }
+}
