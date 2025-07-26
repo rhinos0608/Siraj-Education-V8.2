@@ -34,9 +34,9 @@ const AnalyticsDashboard = ({
 
   // Custom hooks for data fetching
   const {
-    fetchAnalytics,
-    isLoading: apiLoading,
-    error: apiError
+    // fetchAnalytics,
+    // isLoading: apiLoading,
+    // error: apiError
   } = useSirajAPI();
   
   // Mock functions for features not yet implemented
